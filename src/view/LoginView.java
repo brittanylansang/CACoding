@@ -3,8 +3,6 @@ package view;
 import interface_adapter.login.LoginController;
 import interface_adapter.login.LoginState;
 import interface_adapter.login.LoginViewModel;
-import interface_adapter.signup.SignupState;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -17,7 +15,6 @@ import java.beans.PropertyChangeListener;
 public class LoginView extends JPanel implements ActionListener, PropertyChangeListener {
 
     public final String viewName = "log in";
-    private final LoginViewModel loginViewModel;
 
     final JTextField usernameInputField = new JTextField(15);
     private final JLabel usernameErrorField = new JLabel();
@@ -32,8 +29,7 @@ public class LoginView extends JPanel implements ActionListener, PropertyChangeL
     public LoginView(LoginViewModel loginViewModel, LoginController controller) {
 
         this.loginController = controller;
-        this.loginViewModel = loginViewModel;
-        this.loginViewModel.addPropertyChangeListener(this);
+        loginViewModel.addPropertyChangeListener(this);
 
         JLabel title = new JLabel("Login Screen");
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
